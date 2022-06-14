@@ -31,7 +31,7 @@ List<ProductReview> productReviewList = new List<ProductReview>()
             };
 while (true)
 {
-    Console.WriteLine("Choose the correct option : \n1Add Values to List\n2)Top 3 Records");
+    Console.WriteLine("Choose the correct option : \n1Add Values to List\n2)Top 3 Records\n3)Get Records of Rating > 3 from ProductId's 1/4/9");
     int option = Convert.ToInt16(Console.ReadLine());
     switch (option)
     {
@@ -44,6 +44,9 @@ while (true)
             break;
         case 2:
             productReviewMethods.Top3Records(productReviewList);
+            break;
+        case 3:
+            productReviewMethods.RetriveRecords(productReviewList);
             break;
         default:
             Console.WriteLine("Please choose the correct option!");
