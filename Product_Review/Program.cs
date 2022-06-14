@@ -31,7 +31,7 @@ List<ProductReview> productReviewList = new List<ProductReview>()
             };
 while (true)
 {
-    Console.WriteLine("Choose the correct option : \n1Add Values to List\n2)Top 3 Records\n3)Get Records of Rating > 3 from ProductId's 1/4/9\n4)Count of ProductID and GroupBy ProductID\n5)Retieve ProductID and Review\n6)Skip Top 5 records");
+    Console.WriteLine("Choose the correct option : \n1Add Values to List\n2)Top 3 Records\n3)Get Records of Rating > 3 from ProductId's 1/4/9\n4)Count of ProductID and GroupBy ProductID\n5)Retieve ProductID and Review\n6)Skip Top 5 records\n7)Create a DataTable");
     int option = Convert.ToInt16(Console.ReadLine());
     switch (option)
     {
@@ -59,6 +59,9 @@ while (true)
             break;
         case 6:
             productReviewMethods.SkipTop5Records(productReviewList);
+            break;
+        case 7:
+            productReviewMethods.Datatables();
             break;
         default:
             Console.WriteLine("Please choose the correct option!");
