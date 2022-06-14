@@ -58,7 +58,7 @@ List<ProductReview> productReviewList2 = new List<ProductReview>()
             };
 while (true)
 {
-    Console.WriteLine("Choose the correct option : \n1Add Values to List\n2)Top 3 Records\n3)Get Records of Rating > 3 from ProductId's 1/4/9\n4)Count of ProductID and GroupBy ProductID\n5)Retieve ProductID and Review\n6)Skip Top 5 records\n7)Create a DataTable\n8)Get Records Where Islike Is True\n9)Average of Ratings by ProductId\n10)Get Records where Review = Nice");
+    Console.WriteLine("Choose the correct option : \n1Add Values to List\n2)Top 3 Records\n3)Get Records of Rating > 3 from ProductId's 1/4/9\n4)Count of ProductID and GroupBy ProductID\n5)Retieve ProductID and Review\n6)Skip Top 5 records\n7)Create a DataTable\n8)Get Records Where Islike Is True\n9)Average of Ratings by ProductId\n10)Get Records where Review = Nice\n11)Get Records Order By Rating For UserId 10");
     int option = Convert.ToInt16(Console.ReadLine());
     switch (option)
     {
@@ -98,6 +98,9 @@ while (true)
             break;
         case 10:
             productReviewMethods.RecordsWhereReviewIsNice(productReviewList);
+            break;
+        case 11:
+            productReviewMethods.OrderByRatingForUserId10(productReviewList);
             break;
         default:
             Console.WriteLine("Please choose the correct option!");
