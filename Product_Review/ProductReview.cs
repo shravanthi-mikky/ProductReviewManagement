@@ -14,4 +14,11 @@ namespace Product_Review
         public string Review { get; set; }
         public bool Islike { get; set; }
     }
+    /*        
+    *1=Bad - false
+    *2=BelowAverage - false
+    *3=Average - false
+    *4=Good - true
+    *5=Excellent - true
+    */
 }
