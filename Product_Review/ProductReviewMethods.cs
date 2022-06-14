@@ -32,9 +32,7 @@ namespace Product_Review
                      + " " + "Rating:- " + list.Rating + " " + "Review:- " + list.Review + " " + "IsLike:- " + list.Islike);
             }
         }
-        /*var q = from c in dsEC09.Employee
-        group c by c.DepartMent into g
-        select new { g.Key, Count = g.Count() };*/
+        //uc4
         public void CountRecords(List<ProductReview> productreviewlist)
         {
             foreach (var line in productreviewlist.GroupBy(info => info.ProductID)
@@ -47,5 +45,6 @@ namespace Product_Review
                 Console.WriteLine("Product Id:{0} => Count :{1}", line.products, line.Count);
             }
         }
+        
     }
 }
