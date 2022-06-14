@@ -46,6 +46,7 @@ namespace Product_Review
                 Console.WriteLine("Product Id:{0} => Count :{1}", line.products, line.Count);
             }
         }
+        //uc9
         public void RecordsWhereIslikeIdTrue(List<ProductReview> productreviewlist)
         {
             foreach (var productData in (from productReviews in productreviewlist
@@ -104,6 +105,18 @@ namespace Product_Review
             foreach (DataRow row in dt.Rows)
             {
                 Console.WriteLine($"{row["ProductId"]}\t{row["UserId"]}\t{row["Review"]}\t{row["Rating"]}\t{row["Islike"]}");
+            }
+        }
+        //uc10
+        public void AvgRating(List<ProductReview> productreviewlist)
+        {
+            foreach (var data in productreviewlist.GroupBy(info => info.ProductID).Select(group => new
+            {
+                products = group.Key,
+                Count = group.Average(a => a.Rating)
+            }))
+            {
+                Console.WriteLine("Product Id:{0} => Average Rating :{1}", data.products, data.Count);
             }
         }
     }
