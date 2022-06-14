@@ -46,10 +46,21 @@ namespace Product_Review
                 Console.WriteLine("Product Id:{0} => Count :{1}", line.products, line.Count);
             }
         }
+        //uc9
+        public void RecordsWhereIslikeIdTrue(List<ProductReview> productreviewlist)
+        {
+            foreach (var productData in (from productReviews in productreviewlist
+                                         where productReviews.Islike == true
+                                         select productReviews))
+            {
+                Console.WriteLine("ProductID:- " + productData.ProductID + " " + "UserID:- " + productData.UserID
+                                     + " " + "Rating:- " + productData.Rating + " " + "Review:- " + productData.Review + " " + "IsLike:- " + productData.Islike);
+            }
+        }
         //uc5
         public void SkipTop5Records(List<ProductReview> productreviewlist)
         {
-            foreach (var productData in (from productReviews in productreviewlist
+             foreach (var productData in (from productReviews in productreviewlist
                                          select productReviews).Skip(5))
             {
                 Console.WriteLine("ProductID:- " + productData.ProductID + " " + "UserID:- " + productData.UserID
@@ -94,6 +105,41 @@ namespace Product_Review
             foreach (DataRow row in dt.Rows)
             {
                 Console.WriteLine($"{row["ProductId"]}\t{row["UserId"]}\t{row["Review"]}\t{row["Rating"]}\t{row["Islike"]}");
+            }
+        }
+        //uc10
+        public void AvgRating(List<ProductReview> productreviewlist)
+        {
+            foreach (var data in productreviewlist.GroupBy(info => info.ProductID).Select(group => new
+            {
+                products = group.Key,
+                Count = group.Average(a => a.Rating)
+            }))
+            {
+                Console.WriteLine("Product Id:{0} => Average Rating :{1}", data.products, data.Count);
+            }
+        }
+        //uc11
+        public void RecordsWhereReviewIsNice(List<ProductReview> productreviewlist)
+        {
+            foreach (var productData in (from productReviews in productreviewlist
+                                         where productReviews.Review == "Nice"
+                                         select productReviews))
+            {
+                Console.WriteLine("ProductID:- " + productData.ProductID + " " + "UserID:- " + productData.UserID
+                                     + " " + "Rating:- " + productData.Rating + " " + "Review:- " + productData.Review + " " + "IsLike:- " + productData.Islike);
+            }
+        }
+        //uc12
+        public void OrderByRatingForUserId10(List<ProductReview> productreviewlist)
+        {
+            foreach (var list in (from productReviews in productreviewlist
+                                  where productReviews.UserID == 10
+                                  select productReviews).OrderBy(x => x.Rating))
+
+            {
+                Console.WriteLine("ProductID:- " + list.ProductID + " " + "UserID:- " + list.UserID
+                      + " " + "Rating:- " + list.Rating + " " + "Review:- " + list.Review + " " + "IsLike:- " + list.Islike);
             }
         }
     }
