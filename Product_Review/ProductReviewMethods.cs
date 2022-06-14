@@ -46,10 +46,20 @@ namespace Product_Review
                 Console.WriteLine("Product Id:{0} => Count :{1}", line.products, line.Count);
             }
         }
+        public void RecordsWhereIslikeIdTrue(List<ProductReview> productreviewlist)
+        {
+            foreach (var productData in (from productReviews in productreviewlist
+                                         where productReviews.Islike == true
+                                         select productReviews))
+            {
+                Console.WriteLine("ProductID:- " + productData.ProductID + " " + "UserID:- " + productData.UserID
+                                     + " " + "Rating:- " + productData.Rating + " " + "Review:- " + productData.Review + " " + "IsLike:- " + productData.Islike);
+            }
+        }
         //uc5
         public void SkipTop5Records(List<ProductReview> productreviewlist)
         {
-            foreach (var productData in (from productReviews in productreviewlist
+             foreach (var productData in (from productReviews in productreviewlist
                                          select productReviews).Skip(5))
             {
                 Console.WriteLine("ProductID:- " + productData.ProductID + " " + "UserID:- " + productData.UserID
