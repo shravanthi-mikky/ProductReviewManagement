@@ -142,5 +142,16 @@ namespace Product_Review
                       + " " + "Rating:- " + list.Rating + " " + "Review:- " + list.Review + " " + "IsLike:- " + list.Islike);
             }
         }
+        //uc7
+        public void RetrieveProductIdAndReview(List<ProductReview> productreviewlist)
+        {
+            //lambda syntax
+            var recordData = productreviewlist.Select(x => new { ProductId = x.ProductID, Review = x.Review });
+            Console.WriteLine("\nProductID  Review");
+            foreach (var list in recordData)
+            {
+                Console.WriteLine(list.ProductId + "\t    " + list.Review);
+            }
+        }
     }
 }
